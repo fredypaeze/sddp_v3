@@ -1,0 +1,33 @@
+DRY RUN - no se hicieron solicitudes HTTP
+Metricas identificadas: 20/20
+Llamadas estimadas: 4770
+Fin usado para planificacion: 2026-07-13
+Directorios de salida:
+- data/raw/xm/demanda/
+- data/raw/xm/generacion/
+- data/raw/xm/recursos/
+- data/raw/xm/disponibilidad/
+- data/raw/xm/embalses/
+- data/raw/xm/aportes/
+- data/raw/xm/intercambios/
+Metricas:
+- demanda_sin_diaria: DemaSIN | Sistema | DailyEntities | kWh | FOUND_EXACT
+- demanda_real_sistema_horaria: DemaReal | Sistema | HourlyEntities | kWh | FOUND_EXACT
+- generacion_real_por_recurso: Gene | Recurso | HourlyEntities | kWh | FOUND_EXACT
+- generacion_real_total: Gene | Sistema | HourlyEntities | kWh | FOUND_EXACT
+- listado_recursos: ListadoRecursos | Sistema | ListsEntities |  | FOUND_EXACT
+- capacidad_efectiva_neta_recurso: CapEfecNeta | Recurso | DailyEntities | kW | FOUND_EXACT
+- disponibilidad_real_recurso: DispoReal | Recurso | HourlyEntities | kW | FOUND_EXACT
+- disponibilidad_comercial_recurso: DispoCome | Recurso | HourlyEntities | kW | FOUND_EXACT
+- disponibilidad_declarada_recurso: DispoDeclarada | Recurso | HourlyEntities | kWh | FOUND_EXACT
+- volumen_util_energia_sin: VoluUtilDiarEner | Sistema | DailyEntities | kWh | FOUND_EXACT
+- volumen_util_energia_embalse: VoluUtilDiarEner | Embalse | DailyEntities | kWh | FOUND_EXACT
+- capacidad_util_energia_sin: CapaUtilDiarEner | Sistema | DailyEntities | kWh | FOUND_EXACT
+- capacidad_util_energia_embalse: CapaUtilDiarEner | Embalse | DailyEntities | kWh | FOUND_EXACT
+- aportes_energia_sin: AporEner | Sistema | DailyEntities | kWh | FOUND_EXACT
+- aportes_energia_rio: AporEner | Rio | DailyEntities | kWh | FOUND_EXACT
+- importaciones_energia_sistema: ImpoEner | Sistema | HourlyEntities | kWh | FOUND_EXACT
+- exportaciones_energia_sistema: ExpoEner | Sistema | HourlyEntities | kWh | FOUND_EXACT
+- escenario_demanda_upme_alto: EscDemUPMEAlto | Sistema | MonthlyEntities | kWh | FOUND_EXACT
+- escenario_demanda_upme_medio: EscDemUPMEMedio | Sistema | MonthlyEntities | kWh | FOUND_EXACT
+- escenario_demanda_upme_bajo: EscDemUPMEBajo | Sistema | MonthlyEntities | kWh | FOUND_EXACT

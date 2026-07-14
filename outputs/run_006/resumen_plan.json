@@ -1,0 +1,18 @@
+{
+  "pydataxm": {
+    "installed": false,
+    "version": "",
+    "known_issue": "pydataxm 0.3.17 puede fallar con freq='M' y pandas >=2.2 por alias mensual deprecado. Si se decide usar pydataxm, aplicar parche manual documentado; este paquete no modifica el entorno."
+  },
+  "metrics_total": 20,
+  "metrics_found_exact": 20,
+  "estimated_calls": 4770,
+  "dry_run_end_date": "2026-07-13",
+  "resource_estimates": {
+    "central_hydrothermal_resources": 72,
+    "active_embalse_names": 25,
+    "active_rio_names": 44
+  },
+  "execute_required": true,
+  "http_requests_made": 0
+}
