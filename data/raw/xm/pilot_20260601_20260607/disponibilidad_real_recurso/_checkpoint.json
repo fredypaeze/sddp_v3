@@ -1,0 +1,57 @@
+{
+  "completed": {},
+  "errors": [
+    {
+      "call_id": "disponibilidad_real_recurso__2026-06-01__2026-06-07__b001",
+      "error": "Fallo consulta XM despues de 3 intentos: <urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>",
+      "context": {
+        "payload": {
+          "MetricId": "DispoReal",
+          "StartDate": "2026-06-01",
+          "EndDate": "2026-06-07",
+          "Entity": "Recurso",
+          "Filter": [
+            "2QEK",
+            "3ENA",
+            "4YCN",
+            "5QT6",
+            "ALBG",
+            "CHBG",
+            "CHVR",
+            "CLL1",
+            "CLMG",
+            "CTG1"
+          ]
+        },
+        "call": {
+          "call_id": "disponibilidad_real_recurso__2026-06-01__2026-06-07__b001",
+          "target": "disponibilidad_real_recurso",
+          "metric_id": "DispoReal",
+          "entity": "Recurso",
+          "periodicity": "HourlyEntities",
+          "url": "https://servapibi.xm.com.co/hourly",
+          "start_date": "2026-06-01",
+          "end_date": "2026-06-07",
+          "filter_values": [
+            "2QEK",
+            "3ENA",
+            "4YCN",
+            "5QT6",
+            "ALBG",
+            "CHBG",
+            "CHVR",
+            "CLL1",
+            "CLMG",
+            "CTG1"
+          ],
+          "filter_count": 10,
+          "output_dir": "data/raw/xm/disponibilidad/disponibilidad_real_recurso",
+          "unit": "kW",
+          "granularity": "horaria",
+          "timezone": "America/Bogota; confirmar contra respuesta XM"
+        }
+      },
+      "created_at": "2026-07-13T21:34:15"
+    }
+  ]
+}

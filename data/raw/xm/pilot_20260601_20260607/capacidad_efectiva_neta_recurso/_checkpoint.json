@@ -1,0 +1,57 @@
+{
+  "completed": {},
+  "errors": [
+    {
+      "call_id": "capacidad_efectiva_neta_recurso__2026-06-01__2026-06-07__b001",
+      "error": "Fallo consulta XM despues de 3 intentos: <urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>",
+      "context": {
+        "payload": {
+          "MetricId": "CapEfecNeta",
+          "StartDate": "2026-06-01",
+          "EndDate": "2026-06-07",
+          "Entity": "Recurso",
+          "Filter": [
+            "2QEK",
+            "3ENA",
+            "4YCN",
+            "5QT6",
+            "ALBG",
+            "CHBG",
+            "CHVR",
+            "CLL1",
+            "CLMG",
+            "CTG1"
+          ]
+        },
+        "call": {
+          "call_id": "capacidad_efectiva_neta_recurso__2026-06-01__2026-06-07__b001",
+          "target": "capacidad_efectiva_neta_recurso",
+          "metric_id": "CapEfecNeta",
+          "entity": "Recurso",
+          "periodicity": "DailyEntities",
+          "url": "https://servapibi.xm.com.co/daily",
+          "start_date": "2026-06-01",
+          "end_date": "2026-06-07",
+          "filter_values": [
+            "2QEK",
+            "3ENA",
+            "4YCN",
+            "5QT6",
+            "ALBG",
+            "CHBG",
+            "CHVR",
+            "CLL1",
+            "CLMG",
+            "CTG1"
+          ],
+          "filter_count": 10,
+          "output_dir": "data/raw/xm/recursos/capacidad_efectiva_neta_recurso",
+          "unit": "kW",
+          "granularity": "diaria",
+          "timezone": "America/Bogota; confirmar contra respuesta XM"
+        }
+      },
+      "created_at": "2026-07-13T21:34:07"
+    }
+  ]
+}

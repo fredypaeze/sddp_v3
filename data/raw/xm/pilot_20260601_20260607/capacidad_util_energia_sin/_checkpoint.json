@@ -1,0 +1,34 @@
+{
+  "completed": {},
+  "errors": [
+    {
+      "call_id": "capacidad_util_energia_sin__2026-06-01__2026-06-07__b001",
+      "error": "Fallo consulta XM despues de 3 intentos: <urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>",
+      "context": {
+        "payload": {
+          "MetricId": "CapaUtilDiarEner",
+          "StartDate": "2026-06-01",
+          "EndDate": "2026-06-07",
+          "Entity": "Sistema"
+        },
+        "call": {
+          "call_id": "capacidad_util_energia_sin__2026-06-01__2026-06-07__b001",
+          "target": "capacidad_util_energia_sin",
+          "metric_id": "CapaUtilDiarEner",
+          "entity": "Sistema",
+          "periodicity": "DailyEntities",
+          "url": "https://servapibi.xm.com.co/daily",
+          "start_date": "2026-06-01",
+          "end_date": "2026-06-07",
+          "filter_values": [],
+          "filter_count": 0,
+          "output_dir": "data/raw/xm/embalses/capacidad_util_energia_sin",
+          "unit": "kWh",
+          "granularity": "diaria",
+          "timezone": "America/Bogota; confirmar contra respuesta XM"
+        }
+      },
+      "created_at": "2026-07-13T21:34:56"
+    }
+  ]
+}

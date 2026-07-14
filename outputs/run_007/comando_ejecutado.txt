@@ -1,0 +1,1 @@
+python scripts/11_ejecutar_piloto_xm.py

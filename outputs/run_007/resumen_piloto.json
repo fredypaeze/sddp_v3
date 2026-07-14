@@ -1,0 +1,33 @@
+{
+  "status": "PILOT_BLOCKED_NETWORK",
+  "period": [
+    "2026-06-01",
+    "2026-06-07"
+  ],
+  "http_limit": 100,
+  "requests_planned": 59,
+  "requests_made": 16,
+  "requests_ok": 0,
+  "requests_failed": 16,
+  "metrics_ok": [],
+  "metrics_failed": [
+    "aportes_energia_rio",
+    "aportes_energia_sin",
+    "capacidad_efectiva_neta_recurso",
+    "capacidad_util_energia_embalse",
+    "capacidad_util_energia_sin",
+    "demanda_real_sistema_horaria",
+    "demanda_sin_diaria",
+    "disponibilidad_comercial_recurso",
+    "disponibilidad_declarada_recurso",
+    "disponibilidad_real_recurso",
+    "exportaciones_energia_sistema",
+    "generacion_real_por_recurso",
+    "generacion_real_total",
+    "importaciones_energia_sistema",
+    "volumen_util_energia_embalse",
+    "volumen_util_energia_sin"
+  ],
+  "pilot_root": "data\\raw\\xm\\pilot_20260601_20260607",
+  "created_at": "2026-07-13T21:36:49"
+}

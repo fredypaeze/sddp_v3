@@ -1,0 +1,57 @@
+{
+  "completed": {},
+  "errors": [
+    {
+      "call_id": "volumen_util_energia_embalse__2026-06-01__2026-06-07__b001",
+      "error": "Fallo consulta XM despues de 3 intentos: <urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>",
+      "context": {
+        "payload": {
+          "MetricId": "VoluUtilDiarEner",
+          "StartDate": "2026-06-01",
+          "EndDate": "2026-06-07",
+          "Entity": "Embalse",
+          "Filter": [
+            "AGREGADO BOGOTA",
+            "ALTOANCHICAYA",
+            "AMANI",
+            "BETANIA",
+            "CALIMA1",
+            "CHUZA",
+            "EL QUIMBO",
+            "ESMERALDA",
+            "FLORIDA II",
+            "GUAVIO"
+          ]
+        },
+        "call": {
+          "call_id": "volumen_util_energia_embalse__2026-06-01__2026-06-07__b001",
+          "target": "volumen_util_energia_embalse",
+          "metric_id": "VoluUtilDiarEner",
+          "entity": "Embalse",
+          "periodicity": "DailyEntities",
+          "url": "https://servapibi.xm.com.co/daily",
+          "start_date": "2026-06-01",
+          "end_date": "2026-06-07",
+          "filter_values": [
+            "AGREGADO BOGOTA",
+            "ALTOANCHICAYA",
+            "AMANI",
+            "BETANIA",
+            "CALIMA1",
+            "CHUZA",
+            "EL QUIMBO",
+            "ESMERALDA",
+            "FLORIDA II",
+            "GUAVIO"
+          ],
+          "filter_count": 10,
+          "output_dir": "data/raw/xm/embalses/volumen_util_energia_embalse",
+          "unit": "kWh",
+          "granularity": "diaria",
+          "timezone": "America/Bogota; confirmar contra respuesta XM"
+        }
+      },
+      "created_at": "2026-07-13T21:34:48"
+    }
+  ]
+}
