@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-07-13T21:02:56",
+  "status": "BLOCKED_CRITICAL_DATA",
+  "decision_reasons": [
+    "No hay demanda oficial local ni desagregacion de solar, eolica, cogeneracion, importaciones u otras fuentes para reconstruir balance electrico.",
+    "La generacion historica disponible esta agregada a Sistema en hidro_gwh y termo_gwh; no permite recomendacion por recurso.",
+    "No hay capacidad_mw ni disponibilidad_mw temporal por recurso termico en los archivos auditados.",
+    "embalses_manu proyecta volumen util/porcentaje mensual; no existe relacion tecnica auditada para convertir volumen util o masa a energia almacenada GWh.",
+    "Las trayectorias proyectadas de volumen no son aportes hidricos exogenos ni pueden fijarse como almacenamiento endogeno del despacho."
+  ],
+  "coverage": {
+    "generation_rows": 1278,
+    "generation_range": [
+      "2023-01-01",
+      "2026-05-31"
+    ],
+    "aportes_rows": 6027,
+    "aportes_range": [
+      "2010-01-01",
+      "2026-06-01"
+    ],
+    "bolsa_rows": 6026,
+    "bolsa_range": [
+      "2010-01-01",
+      "2026-05-31"
+    ],
+    "offer_resource_codes": 95,
+    "offer_range": [
+      "2010-01-01",
+      "2026-06-30"
+    ],
+    "thermal_resources": 77,
+    "central_thermal_resources": 41,
+    "xm_metric_presence": {
+      "DemaReal": true,
+      "catalogo_metricas_disponible": true
+    },
+    "scenario_dates": 12,
+    "scenario_names": [
+      "Debil",
+      "Fuerte",
+      "Moderado",
+      "MuyFuerte",
+      "Neutro"
+    ]
+  },
+  "probability_sums": [
+    {
+      "Fecha": "2026-06-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-07-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-08-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-09-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-10-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-11-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2026-12-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2027-01-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2027-02-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2027-03-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2027-04-01",
+      "probability_sum": 1.0,
+      "valid": true
+    },
+    {
+      "Fecha": "2027-05-01",
+      "probability_sum": 1.0,
+      "valid": true
+    }
+  ]
+}

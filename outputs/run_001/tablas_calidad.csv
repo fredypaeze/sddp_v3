@@ -1,0 +1,7 @@
+metric,value,detail
+catalogo_vs_generacion_por_recurso,0.0,generacion_2023_2026.csv esta agregada a Sistema; no trae codigo_recurso.
+termicas_con_precio_oferta,0.5194805194805194,40/77 recursos termicos.
+termicas_centrales_con_precio_oferta,0.975609756097561,40/41 termicas despachadas centralmente.
+termicas_con_capacidad_mw,0.0,Listado de plantas no contiene capacidad_mw.
+termicas_con_disponibilidad_mw,0.0,"Values_Disp es clasificacion de despacho central, no disponibilidad_mw temporal."
+escenarios_probabilidades_validas_por_fecha,1.0,12/12 fechas suman 1.
