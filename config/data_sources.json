@@ -1,0 +1,30 @@
+{
+  "external_sources": {
+    "sddp_previous": {
+      "path": "D:/Proyectos/minenergia/sddp",
+      "mode": "read_only",
+      "description": "Proyecto SDDP anterior usado solo para localizar datos descargados y antecedentes."
+    },
+    "embalses_manu": {
+      "path": "D:/Proyectos/minenergia/embalses_manu",
+      "mode": "read_only",
+      "description": "Proyecto de modelo de embalses usado para auditar volumen, predicciones y validaciones."
+    },
+    "xm_validation": {
+      "path": "D:/Proyectos/minenergia/xm_validation-main",
+      "mode": "read_only",
+      "description": "Proyecto de validacion XM usado para nombres oficiales, unidades, esquemas y limitaciones documentadas."
+    }
+  },
+  "local_project": {
+    "path": "D:/Proyectos/minenergia/sddp_v3",
+    "mode": "read_write"
+  },
+  "prohibitions": {
+    "network": true,
+    "downloads": true,
+    "external_writes": true,
+    "venv_copy": true,
+    "credentials_access": true
+  }
+}
