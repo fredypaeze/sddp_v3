@@ -1,0 +1,46 @@
+{
+  "policies": [
+    {
+      "target": "importaciones_energia_sistema",
+      "metric_id": "ImpoEner",
+      "entity": "Sistema",
+      "periodicity": "HourlyEntities",
+      "missing_record_policy": "STRUCTURAL_ZERO_INFERRED_ONLY_INSIDE_VALID_NON_EMPTY_RESPONSE",
+      "empty_window_policy": "UNKNOWN_EMPTY_WINDOW",
+      "explicit_zero_policy": "PRESERVE_AS_EXPLICIT_ZERO",
+      "structural_zero_conditions": [
+        "JSON valido",
+        "Items no vacio en la ventana",
+        "MetricId esperado",
+        "estructura horaria Hour01-Hour24 presente o dia omitido dentro de ventana valida",
+        "valor horario vacio o dia omitido sin error de descarga",
+        "no aplicar a ventanas completas Items: []"
+      ],
+      "evidence_period": "2023-01-01 a 2026-07-13",
+      "evidence_run": "outputs/run_012",
+      "status": "STRUCTURAL_ZERO_POLICY_VALIDATED_WITH_WARNINGS",
+      "rationale": "Las respuestas no vacias usan matriz Hour01-Hour24 con cadenas vacias para horas sin intercambio y omiten dias completos sin valores; los valores reportados son positivos y las ventanas completamente vacias se conservan como desconocidas."
+    },
+    {
+      "target": "exportaciones_energia_sistema",
+      "metric_id": "ExpoEner",
+      "entity": "Sistema",
+      "periodicity": "HourlyEntities",
+      "missing_record_policy": "STRUCTURAL_ZERO_INFERRED_ONLY_INSIDE_VALID_NON_EMPTY_RESPONSE",
+      "empty_window_policy": "UNKNOWN_EMPTY_WINDOW",
+      "explicit_zero_policy": "PRESERVE_AS_EXPLICIT_ZERO",
+      "structural_zero_conditions": [
+        "JSON valido",
+        "Items no vacio en la ventana",
+        "MetricId esperado",
+        "estructura horaria Hour01-Hour24 presente o dia omitido dentro de ventana valida",
+        "valor horario vacio o dia omitido sin error de descarga",
+        "no aplicar a ventanas completas Items: []"
+      ],
+      "evidence_period": "2023-01-01 a 2026-07-13",
+      "evidence_run": "outputs/run_012",
+      "status": "STRUCTURAL_ZERO_POLICY_VALIDATED_WITH_WARNINGS",
+      "rationale": "Las respuestas no vacias usan matriz Hour01-Hour24 con cadenas vacias para horas sin intercambio y omiten dias completos sin valores; los valores reportados son positivos y las ventanas completamente vacias se conservan como desconocidas."
+    }
+  ]
+}
