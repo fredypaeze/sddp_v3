@@ -1,0 +1,1 @@
+python.exe scripts/12_auditar_intercambios_xm.py --execute --start-date 2023-01-01 --end-date 2026-07-13 --run-dir outputs/run_012 --output-dir data/processed/xm/system_historical_v2

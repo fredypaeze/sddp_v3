@@ -1,0 +1,126 @@
+{
+  "status": "STRUCTURAL_ZERO_POLICY_VALIDATED_WITH_WARNINGS",
+  "created_at": "2026-07-16T16:53:16",
+  "run_dir": "outputs\\run_012_v002",
+  "processed_dir": "data\\processed\\xm\\system_historical_v3",
+  "patterns": {
+    "importaciones_energia_sistema": {
+      "target": "importaciones_energia_sistema",
+      "files_total": 43,
+      "valid_windows": 43,
+      "empty_windows": 2,
+      "expected_days": 1290,
+      "days_with_records": 928,
+      "days_without_records": 362,
+      "expected_hours": 30960,
+      "reported_hours": 9598,
+      "missing_hours": 21362,
+      "explicit_zeros": 0,
+      "positive_values": 9598,
+      "negative_values": 0,
+      "min_gwh": 1.1e-07,
+      "max_gwh": 0.46498640999999996,
+      "mean_gwh": 0.08019696410293811,
+      "reported_hours_distribution_by_day": "{\"1\": 25, \"2\": 35, \"3\": 32, \"4\": 44, \"5\": 48, \"6\": 72, \"7\": 85, \"8\": 98, \"9\": 72, \"10\": 54, \"11\": 59, \"12\": 43, \"13\": 36, \"14\": 30, \"15\": 20, \"16\": 19, \"17\": 13, \"18\": 16, \"19\": 10, \"20\": 21, \"21\": 12, \"22\": 15, \"23\": 22, \"24\": 47}",
+      "days_with_0_hours": 362,
+      "days_with_1_23_hours": 881,
+      "days_with_24_hours": 47,
+      "max_consecutive_absent_days": 50,
+      "max_consecutive_absent_hours": 1226
+    },
+    "exportaciones_energia_sistema": {
+      "target": "exportaciones_energia_sistema",
+      "files_total": 43,
+      "valid_windows": 43,
+      "empty_windows": 0,
+      "expected_days": 1290,
+      "days_with_records": 1235,
+      "days_without_records": 55,
+      "expected_hours": 30960,
+      "reported_hours": 21193,
+      "missing_hours": 9767,
+      "explicit_zeros": 0,
+      "positive_values": 21193,
+      "negative_values": 0,
+      "min_gwh": 1e-08,
+      "max_gwh": 0.47714037,
+      "mean_gwh": 0.1565355869532393,
+      "reported_hours_distribution_by_day": "{\"1\": 22, \"2\": 15, \"3\": 12, \"4\": 22, \"5\": 10, \"6\": 16, \"7\": 13, \"8\": 20, \"9\": 20, \"10\": 29, \"11\": 37, \"12\": 43, \"13\": 59, \"14\": 54, \"15\": 67, \"16\": 98, \"17\": 86, \"18\": 73, \"19\": 48, \"20\": 43, \"21\": 30, \"22\": 28, \"23\": 23, \"24\": 367}",
+      "days_with_0_hours": 55,
+      "days_with_1_23_hours": 868,
+      "days_with_24_hours": 367,
+      "max_consecutive_absent_days": 8,
+      "max_consecutive_absent_hours": 224
+    }
+  },
+  "explicit_zeros": 0,
+  "missing_hours_by_target": {
+    "exportaciones_energia_sistema": 9767,
+    "importaciones_energia_sistema": 21362
+  },
+  "empty_windows": 2,
+  "structural_zeros_inferred": 29689,
+  "unknown_values_kept": 1440,
+  "model_ready_days": 1230,
+  "excluded_days": 60,
+  "balance_before_mean_abs_relative": 0.0008097251499929518,
+  "balance_after_mean_abs_relative": 0.0008015978102164941,
+  "comparison": [
+    {
+      "variant": "STRICT_OBSERVED_ONLY",
+      "calculable_days": 879,
+      "mean_abs_gwh": 0.18206714448236638,
+      "mean_abs_relative": 0.0008097251499929518,
+      "median_abs_relative": 0.0004411357375376448,
+      "p90_abs_relative": 0.0020590559556642666,
+      "p95_abs_relative": 0.003036941630037517,
+      "p99_abs_relative": 0.0046465221171496035,
+      "days_abs_gt_1pct": 0,
+      "days_abs_gt_2pct": 0,
+      "days_abs_gt_5pct": 0,
+      "largest_diff_dates": "[{\"fecha\": \"2023-05-07\", \"diferencia_balance_pct\": -0.006887997591904436}, {\"fecha\": \"2023-04-16\", \"diferencia_balance_pct\": -0.006334221736857477}, {\"fecha\": \"2024-07-07\", \"diferencia_balance_pct\": -0.005985378651428737}, {\"fecha\": \"2024-10-20\", \"diferencia_balance_pct\": -0.00597169191631247}, {\"fecha\": \"2025-07-13\", \"diferencia_balance_pct\": -0.00500998225974562}, {\"fecha\": \"2025-01-26\", \"diferencia_balance_pct\": -0.004894328733758515}, {\"fecha\": \"2025-03-16\", \"diferencia_balance_pct\": -0.004714356511759816}, {\"fecha\": \"2025-03-30\", \"diferencia_balance_pct\": -0.004687895750591442}, {\"fecha\": \"2023-09-03\", \"diferencia_balance_pct\": -0.004677812099301319}, {\"fecha\": \"2023-11-26\", \"diferencia_balance_pct\": -0.004637696737568349}]"
+    },
+    {
+      "variant": "CANDIDATE_STRUCTURAL_ZERO",
+      "calculable_days": 1230,
+      "mean_abs_gwh": 0.17890278861788675,
+      "mean_abs_relative": 0.0008015978102164941,
+      "median_abs_relative": 0.0004173890571738297,
+      "p90_abs_relative": 0.0020729390787216765,
+      "p95_abs_relative": 0.0029791334340060383,
+      "p99_abs_relative": 0.004828454417669234,
+      "days_abs_gt_1pct": 0,
+      "days_abs_gt_2pct": 0,
+      "days_abs_gt_5pct": 0,
+      "largest_diff_dates": "[{\"fecha\": \"2024-03-03\", \"diferencia_balance_pct\": -0.007957364152317714}, {\"fecha\": \"2023-02-19\", \"diferencia_balance_pct\": -0.00760135725235402}, {\"fecha\": \"2023-11-19\", \"diferencia_balance_pct\": -0.006968896316414506}, {\"fecha\": \"2023-05-07\", \"diferencia_balance_pct\": -0.006887997591904436}, {\"fecha\": \"2023-04-16\", \"diferencia_balance_pct\": -0.006334221736857477}, {\"fecha\": \"2024-07-07\", \"diferencia_balance_pct\": -0.005985378651428737}, {\"fecha\": \"2024-10-20\", \"diferencia_balance_pct\": -0.00597169191631247}, {\"fecha\": \"2023-07-23\", \"diferencia_balance_pct\": -0.00594799898184518}, {\"fecha\": \"2024-03-17\", \"diferencia_balance_pct\": -0.005388935263320736}, {\"fecha\": \"2025-07-13\", \"diferencia_balance_pct\": -0.00500998225974562}]"
+    },
+    {
+      "variant": "UNSAFE_ALL_MISSING_ZERO",
+      "calculable_days": 1290,
+      "mean_abs_gwh": 0.18250322480620226,
+      "mean_abs_relative": 0.0008170093958239802,
+      "median_abs_relative": 0.00040698233989373736,
+      "p90_abs_relative": 0.0020616711241240996,
+      "p95_abs_relative": 0.0029158043909219837,
+      "p99_abs_relative": 0.004877177591756258,
+      "days_abs_gt_1pct": 1,
+      "days_abs_gt_2pct": 1,
+      "days_abs_gt_5pct": 0,
+      "largest_diff_dates": "[{\"fecha\": \"2024-09-17\", \"diferencia_balance_pct\": -0.03001307490736119}, {\"fecha\": \"2024-03-03\", \"diferencia_balance_pct\": -0.007957364152317714}, {\"fecha\": \"2023-02-19\", \"diferencia_balance_pct\": -0.00760135725235402}, {\"fecha\": \"2023-11-19\", \"diferencia_balance_pct\": -0.006968896316414506}, {\"fecha\": \"2023-05-07\", \"diferencia_balance_pct\": -0.006887997591904436}, {\"fecha\": \"2023-04-16\", \"diferencia_balance_pct\": -0.006334221736857477}, {\"fecha\": \"2024-07-07\", \"diferencia_balance_pct\": -0.005985378651428737}, {\"fecha\": \"2024-10-20\", \"diferencia_balance_pct\": -0.00597169191631247}, {\"fecha\": \"2023-07-23\", \"diferencia_balance_pct\": -0.00594799898184518}, {\"fecha\": \"2024-03-17\", \"diferencia_balance_pct\": -0.005388935263320736}]"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "UNKNOWN_EMPTY_WINDOWS",
+      "target": "importaciones_energia_sistema",
+      "message": "2 ventanas completas se mantienen desconocidas"
+    }
+  ],
+  "errors": [],
+  "parquet_files": [
+    "data\\processed\\xm\\system_historical_v3\\system_hourly.parquet",
+    "data\\processed\\xm\\system_historical_v3\\system_daily_all.parquet",
+    "data\\processed\\xm\\system_historical_v3\\system_daily_model_ready.parquet",
+    "data\\processed\\xm\\system_historical_v3\\system_daily_excluded.parquet"
+  ]
+}

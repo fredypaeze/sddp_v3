@@ -1,0 +1,3 @@
+target,source_file,source_sha256,window_start,window_end,classification
+importaciones_energia_sistema,data\raw\xm\intercambios\importaciones_energia_sistema\importaciones_energia_sistema__2023-01-01__2023-01-30__b001.json,b2579f56f42cc9095d65f791b6e354479ebbffcb932d9d4a672da5105a8a1e0a,2023-01-01,2023-01-30,UNKNOWN_EMPTY_WINDOW
+importaciones_energia_sistema,data\raw\xm\intercambios\importaciones_energia_sistema\importaciones_energia_sistema__2024-08-23__2024-09-21__b001.json,2bc02ab992722a05ec78fb8376d16fa6a46522af75bea9df2b4e32509b11afed,2024-08-23,2024-09-21,UNKNOWN_EMPTY_WINDOW
