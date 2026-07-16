@@ -1,0 +1,111 @@
+{
+  "demanda_real_sistema_horaria": {
+    "metric_id": "DemaReal",
+    "periodicity": "HourlyEntities",
+    "unit_catalog": "kWh",
+    "unit_effective": "kWh",
+    "derived_column_expected": "Value_GWh",
+    "columns_real": [
+      "Date",
+      "Hour",
+      "Id",
+      "Value",
+      "Value_GWh",
+      "code",
+      "name",
+      "override_reason",
+      "unit_catalog",
+      "unit_effective",
+      "unit_override_applied"
+    ],
+    "columns_missing": [],
+    "columns_unexpected": []
+  },
+  "demanda_sin_diaria": {
+    "metric_id": "DemaSIN",
+    "periodicity": "DailyEntities",
+    "unit_catalog": "kWh",
+    "unit_effective": "kWh",
+    "derived_column_expected": "Value_GWh",
+    "columns_real": [
+      "Date",
+      "Id",
+      "Value",
+      "Value_GWh",
+      "code",
+      "name",
+      "override_reason",
+      "unit_catalog",
+      "unit_effective",
+      "unit_override_applied"
+    ],
+    "columns_missing": [],
+    "columns_unexpected": []
+  },
+  "generacion_real_total": {
+    "metric_id": "Gene",
+    "periodicity": "HourlyEntities",
+    "unit_catalog": "kWh",
+    "unit_effective": "kWh",
+    "derived_column_expected": "Value_GWh",
+    "columns_real": [
+      "Date",
+      "Hour",
+      "Id",
+      "Value",
+      "Value_GWh",
+      "code",
+      "name",
+      "override_reason",
+      "unit_catalog",
+      "unit_effective",
+      "unit_override_applied"
+    ],
+    "columns_missing": [],
+    "columns_unexpected": []
+  },
+  "importaciones_energia_sistema": {
+    "metric_id": "ImpoEner",
+    "periodicity": "HourlyEntities",
+    "unit_catalog": "kWh",
+    "unit_effective": "kWh",
+    "derived_column_expected": "Value_GWh",
+    "columns_real": [
+      "Date",
+      "Hour",
+      "Id",
+      "Value",
+      "Value_GWh",
+      "code",
+      "name",
+      "override_reason",
+      "unit_catalog",
+      "unit_effective",
+      "unit_override_applied"
+    ],
+    "columns_missing": [],
+    "columns_unexpected": []
+  },
+  "exportaciones_energia_sistema": {
+    "metric_id": "ExpoEner",
+    "periodicity": "HourlyEntities",
+    "unit_catalog": "kWh",
+    "unit_effective": "kWh",
+    "derived_column_expected": "Value_GWh",
+    "columns_real": [
+      "Date",
+      "Hour",
+      "Id",
+      "Value",
+      "Value_GWh",
+      "code",
+      "name",
+      "override_reason",
+      "unit_catalog",
+      "unit_effective",
+      "unit_override_applied"
+    ],
+    "columns_missing": [],
+    "columns_unexpected": []
+  }
+}

@@ -1,0 +1,3 @@
+severity,target,file,code,message
+WARNING,importaciones_energia_sistema,data\raw\xm\intercambios\importaciones_energia_sistema\importaciones_energia_sistema__2023-01-01__2023-01-30__b001.json,EMPTY_ITEMS,Respuesta valida sin Items; se interpreta como ventana sin valores reportados
+WARNING,importaciones_energia_sistema,data\raw\xm\intercambios\importaciones_energia_sistema\importaciones_energia_sistema__2024-08-23__2024-09-21__b001.json,EMPTY_ITEMS,Respuesta valida sin Items; se interpreta como ventana sin valores reportados

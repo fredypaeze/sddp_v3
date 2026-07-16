@@ -1,0 +1,1 @@
+python.exe scripts/09_validar_descargas_xm2.py --target demanda_real_sistema_horaria --target demanda_sin_diaria --target generacion_real_total --target importaciones_energia_sistema --target exportaciones_energia_sistema --start-date 2023-01-01 --end-date 2026-07-13 --run-dir outputs/run_010

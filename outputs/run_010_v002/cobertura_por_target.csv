@@ -1,0 +1,6 @@
+target,metric_id,periodicity,unit_catalog,windows_expected,windows_found,windows_completed_checkpoint,windows_missing,windows_duplicated,overlaps,temporal_gaps,first_effective_date,last_effective_date,total_records,file_count,checkpoint_errors,covers_full_period
+demanda_real_sistema_horaria,DemaReal,HourlyEntities,kWh,43,43,43,0,0,0,0,2023-01-01,2026-07-13,30960,43,0,True
+demanda_sin_diaria,DemaSIN,DailyEntities,kWh,43,43,43,0,0,0,0,2023-01-01,2026-07-13,1290,43,0,True
+generacion_real_total,Gene,HourlyEntities,kWh,43,43,43,0,0,0,0,2023-01-01,2026-07-13,30960,43,0,True
+importaciones_energia_sistema,ImpoEner,HourlyEntities,kWh,43,43,43,0,0,0,0,2023-01-01,2026-07-13,22272,43,0,True
+exportaciones_energia_sistema,ExpoEner,HourlyEntities,kWh,43,43,43,0,0,0,0,2023-01-01,2026-07-13,29640,43,0,True

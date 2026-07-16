@@ -1,0 +1,29 @@
+{
+  "status": "HISTORICAL_BLOCK_VALIDATED_WITH_WARNINGS",
+  "created_at": "2026-07-16T15:14:28",
+  "command": "python.exe scripts/09_validar_descargas_xm2.py --target demanda_real_sistema_horaria --target demanda_sin_diaria --target generacion_real_total --target importaciones_energia_sistema --target exportaciones_energia_sistema --start-date 2023-01-01 --end-date 2026-07-13 --run-dir outputs/run_010",
+  "start_date": "2023-01-01",
+  "end_date": "2026-07-13",
+  "run_dir": "outputs\\run_010_v002",
+  "targets": [
+    "demanda_real_sistema_horaria",
+    "demanda_sin_diaria",
+    "generacion_real_total",
+    "importaciones_energia_sistema",
+    "exportaciones_energia_sistema"
+  ],
+  "files_found": 215,
+  "windows_expected_per_target": 43,
+  "missing_windows": 0,
+  "duplicated_windows": 0,
+  "blocking_errors": 0,
+  "warnings": 2,
+  "balance_preliminar": {
+    "days_expected": 1290,
+    "days_available_all_series": 1290,
+    "days_missing_any_series": 0,
+    "atypical_daily_closures": 0,
+    "mean_abs_dema_real_vs_dema_sin_rel": 0.016635620252298453,
+    "mean_abs_balance_vs_dema_sin_rel": 0.0008170093958239795
+  }
+}

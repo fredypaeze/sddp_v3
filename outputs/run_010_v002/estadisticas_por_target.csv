@@ -1,0 +1,6 @@
+target,metric_id,unit_catalog,unit_effective,derived_column,records,date_min,date_max,nulls,duplicates,value_min,value_max,value_mean
+demanda_real_sistema_horaria,DemaReal,kWh,kWh,Value_GWh,30960,2023-01-01,2026-07-13,30960,0,1.21489689,12.222100710000001,9.400651894470931
+demanda_sin_diaria,DemaSIN,kWh,kWh,Value_GWh,1290,2023-01-01,2026-07-13,2580,0,168.12069693,262.65251337,226.93802435036434
+exportaciones_energia_sistema,ExpoEner,kWh,kWh,Value_GWh,29640,2023-01-01,2026-07-13,46534,0,1e-08,0.47714037,0.15653558695323927
+generacion_real_total,Gene,kWh,kWh,Value_GWh,30960,2023-01-01,2026-07-13,30960,0,6.32156761,12.440393359999998,9.530437677157945
+importaciones_energia_sistema,ImpoEner,kWh,kWh,Value_GWh,22272,2023-02-07,2026-07-13,47620,0,1.0999999999999999e-07,0.46498640999999996,0.08019696410293811
