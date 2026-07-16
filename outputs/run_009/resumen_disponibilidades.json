@@ -1,0 +1,65 @@
+{
+  "resources": 72,
+  "hours": 168,
+  "union_coverage_records": 12096,
+  "intersection_records": 10023,
+  "stats": {
+    "CapEfecNeta_MW": {
+      "min": 8.0,
+      "max": 1250.0,
+      "median": 145.0,
+      "non_null": 11928
+    },
+    "DispoReal_MW": {
+      "min": 0.533,
+      "max": 1240.0,
+      "median": 161.0,
+      "non_null": 10067
+    },
+    "DispoCome_MW": {
+      "min": 0.19662,
+      "max": 1240.0,
+      "median": 161.0,
+      "non_null": 10023
+    },
+    "DispoDeclarada_MW": {
+      "min": 0.0,
+      "max": 1240.0,
+      "median": 116.0,
+      "non_null": 12096
+    }
+  },
+  "declared_gt_capacity": 0,
+  "real_gt_capacity": 0,
+  "commercial_gt_capacity": 157,
+  "max_abs_declared_real_diff_mw": 365.932,
+  "max_abs_declared_commercial_diff_mw": 365.96,
+  "max_abs_real_commercial_diff_mw": 310.0,
+  "resources_with_zero": {
+    "CapEfecNeta_MW": [],
+    "DispoReal_MW": [],
+    "DispoCome_MW": [],
+    "DispoDeclarada_MW": [
+      "4YCN",
+      "5QT6",
+      "CHBG",
+      "CTG2",
+      "CTG3",
+      "ESMR",
+      "PPA1",
+      "PPA4",
+      "PRG1",
+      "SNFR",
+      "TCBE",
+      "TGJ2",
+      "TRN1",
+      "TYP3",
+      "TYP4",
+      "TYP5",
+      "ZPA2"
+    ]
+  },
+  "resources_without_capacity": [
+    "5QT6"
+  ]
+}

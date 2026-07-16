@@ -1,0 +1,8 @@
+Date,Id,code,name,Value,unit_catalog,unit_effective,unit_override_applied,override_reason,Value_GWh
+2026-06-01,Sistema,,,253012464.4,kWh,kWh,False,,253.0124644
+2026-06-02,Sistema,,,257377052.85,kWh,kWh,False,,257.37705285
+2026-06-03,Sistema,,,254009802.28,kWh,kWh,False,,254.00980228
+2026-06-04,Sistema,,,251223049.05,kWh,kWh,False,,251.22304905000001
+2026-06-05,Sistema,,,247756035.95,kWh,kWh,False,,247.75603594999998
+2026-06-06,Sistema,,,231709833.81,kWh,kWh,False,,231.70983381
+2026-06-07,Sistema,,,209870742.18,kWh,kWh,False,,209.87074218

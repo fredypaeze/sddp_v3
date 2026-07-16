@@ -1,0 +1,2 @@
+target,metric_id,entity,catalog_unit,effective_unit,derived_column,conversion_factor,status,evidence_period,evidence_run,reason
+disponibilidad_declarada_recurso,DispoDeclarada,Recurso,kWh,kW,Value_MW,0.001,VALIDATED_FROM_REAL_RESPONSE,2026-06-01 a 2026-06-07,outputs/run_008,"La magnitud y comportamiento horario coinciden con CapEfecNeta, DispoReal y DispoCome y la descripcion oficial corresponde a potencia neta."
