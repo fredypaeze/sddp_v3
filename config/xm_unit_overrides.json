@@ -1,0 +1,17 @@
+﻿{
+  "overrides": [
+    {
+      "target": "disponibilidad_declarada_recurso",
+      "metric_id": "DispoDeclarada",
+      "entity": "Recurso",
+      "catalog_unit": "kWh",
+      "effective_unit": "kW",
+      "derived_column": "Value_MW",
+      "conversion_factor": 0.001,
+      "status": "VALIDATED_FROM_REAL_RESPONSE",
+      "evidence_period": "2026-06-01 a 2026-06-07",
+      "evidence_run": "outputs/run_008",
+      "reason": "La magnitud y comportamiento horario coinciden con CapEfecNeta, DispoReal y DispoCome y la descripcion oficial corresponde a potencia neta."
+    }
+  ]
+}

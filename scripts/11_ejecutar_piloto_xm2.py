@@ -26,7 +26,7 @@ from minenergia_sddp.data.xm_checkpoints import (
     versioned_path,
 )
 from minenergia_sddp.data.xm_client import XMClient, payload_for_call, save_json
-from minenergia_sddp.data.xm_pilot import derive_units, normalize_xm_response, read_normalized_outputs, schema_summary
+from minenergia_sddp.data.xm_pilot import derive_units_contextual, normalize_xm_response, read_normalized_outputs, schema_summary
 
 PILOT_START = "2026-06-01"
 PILOT_END = "2026-06-07"
@@ -450,7 +450,7 @@ def execute_pilot(args: argparse.Namespace, command_line: str) -> dict[str, Any]
             duration = time.perf_counter() - started
             raw_path = versioned_path(out_dir, call["call_id"], ".json")
             save_json(raw_path, data)
-            normalized = derive_units(normalize_xm_response(data, call["periodicity"]), call["unit"])
+            normalized = derive_units_contextual(normalize_xm_response(data, call["periodicity"]), target=call["target"], metric_id=call["metric_id"], entity=call["entity"], catalog_unit=call["unit"])
             if normalized.empty:
                 raise ValueError("Respuesta no vacia pero normalizacion produjo cero registros")
             norm_path = versioned_path(out_dir, f"{call['call_id']}__normalized", ".csv")
@@ -679,4 +679,5 @@ def main(argv: list[str] | None = None, command_line: str | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
