@@ -1,0 +1,1 @@
+"C:\Users\fredy\AppData\Local\Programs\Python\Python311\python.exe" scripts/11_ejecutar_piloto_xm2.py --dry-run --retry-network-errors --max-http-requests 100
