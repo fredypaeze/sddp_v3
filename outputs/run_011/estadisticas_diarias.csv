@@ -1,0 +1,2 @@
+mean_abs_dema_real_vs_dema_sin_rel,mean_abs_balance_rel,balance_abs_error_p50,balance_abs_error_p95,balance_abs_error_p99,days_balance_abs_gt_1pct,days_balance_abs_gt_2pct,days_balance_abs_gt_5pct
+0.016635620252298453,0.0008097251499929526,0.0004411357375377594,0.003036941630037517,0.004646522117149524,0,0,0

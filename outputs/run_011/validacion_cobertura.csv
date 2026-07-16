@@ -1,0 +1,6 @@
+target,json_files,records,date_min,date_max
+demanda_real_sistema_horaria,43,30960,2023-01-01,2026-07-13
+demanda_sin_diaria,43,1290,2023-01-01,2026-07-13
+generacion_real_total,43,30960,2023-01-01,2026-07-13
+importaciones_energia_sistema,43,22272,2023-02-07,2026-07-13
+exportaciones_energia_sistema,43,29640,2023-01-01,2026-07-13

@@ -1,0 +1,43 @@
+{
+  "status": "CONSOLIDATION_VALIDATED_WITH_WARNINGS",
+  "created_at": "2026-07-16T15:58:36",
+  "processed_dir": "data\\processed\\xm\\system_historical_v1",
+  "run_dir": "outputs\\run_011",
+  "json_by_target": {
+    "demanda_real_sistema_horaria": 43,
+    "demanda_sin_diaria": 43,
+    "generacion_real_total": 43,
+    "importaciones_energia_sistema": 43,
+    "exportaciones_energia_sistema": 43
+  },
+  "records_by_target": {
+    "demanda_real_sistema_horaria": 30960,
+    "demanda_sin_diaria": 1290,
+    "generacion_real_total": 30960,
+    "importaciones_energia_sistema": 22272,
+    "exportaciones_energia_sistema": 29640
+  },
+  "system_hourly_rows": 30960,
+  "system_daily_all_rows": 1290,
+  "system_daily_model_ready_rows": 0,
+  "excluded_days": 1290,
+  "empty_windows": 2,
+  "exact_duplicates": 0,
+  "conflicting_duplicates": 0,
+  "balance_stats": {
+    "mean_abs_dema_real_vs_dema_sin_rel": 0.016635620252298453,
+    "mean_abs_balance_rel": 0.0008097251499929526,
+    "balance_abs_error_p50": 0.0004411357375377594,
+    "balance_abs_error_p95": 0.003036941630037517,
+    "balance_abs_error_p99": 0.004646522117149524,
+    "days_balance_abs_gt_1pct": 0,
+    "days_balance_abs_gt_2pct": 0,
+    "days_balance_abs_gt_5pct": 0
+  },
+  "parquet_files": [
+    "data\\processed\\xm\\system_historical_v1\\system_hourly.parquet",
+    "data\\processed\\xm\\system_historical_v1\\system_daily_all.parquet",
+    "data\\processed\\xm\\system_historical_v1\\system_daily_model_ready.parquet",
+    "data\\processed\\xm\\system_historical_v1\\system_daily_excluded.parquet"
+  ]
+}
