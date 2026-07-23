@@ -49,7 +49,15 @@ def _monthly_demand_climatology(daily: pd.DataFrame) -> dict[int, float]:
 def build_horizon_stages(start_year: int, start_month: int, horizon: int = 6, *,
                          fase: str = "auto", k: int = 20, seed: int = 42,
                          cfg_json: dict | None = None,
+                         v0_frac: float | None = None, tmax_dia: float | None = None,
+                         c_terminal: float | None = None,
                          root: Path | None = None) -> tuple[list[StageInput], SddpConfig, HorizonMeta]:
+    """Construye las etapas del horizonte.
+
+    v0_frac: si se da, fuerza V0 = v0_frac * capacidad (prueba de estres del embalse).
+    tmax_dia: si se da, sobreescribe la capacidad termica diaria (p.ej. restriccion de gas).
+    c_terminal: valor del agua terminal (COP/kWh); por defecto = costo termico de la fase.
+    """
     root = root or project_root()
     cfg = cfg_json or load_config()
     rng = np.random.default_rng(seed)
@@ -59,8 +67,9 @@ def build_horizon_stages(start_year: int, start_month: int, horizon: int = 6, *,
     model = InflowModel.fit(monthly)
     dem_clim = _monthly_demand_climatology(daily)
 
-    v0 = float(daily["volumen_gwh"].iloc[-1])
     capacidad = float(daily["capacidad_gwh"].iloc[-1])
+    v0 = v0_frac * capacidad if v0_frac is not None else float(daily["volumen_gwh"].iloc[-1])
+    tmax_val = tmax_dia if tmax_dia is not None else cfg["termica"]["capacidad_max_gwh_dia"]["valor"]
 
     oni_tbl = pd.read_csv(root / ONI)
     meses, fechas, oni_path, demandas, stages = [], [], [], [], []
@@ -73,7 +82,7 @@ def build_horizon_stages(start_year: int, start_month: int, horizon: int = 6, *,
         samp = model.sample_stage(mth, oni, k, rng) * dias
         stages.append(StageInput(demanda_gwh=dem_dia * dias, capacidad_gwh=capacidad,
                                  hmax_gwh=cfg["hidraulica"]["turbina_max_gwh_dia"]["valor"] * dias,
-                                 tmax_gwh=cfg["termica"]["capacidad_max_gwh_dia"]["valor"] * dias,
+                                 tmax_gwh=tmax_val * dias,
                                  inflow_samples=samp, probs=np.full(k, 1.0 / k),
                                  etiqueta=f"{y:04d}-{mth:02d}"))
         meses.append(mth); fechas.append(f"{y:04d}-{mth:02d}"); oni_path.append(oni)
@@ -90,7 +99,7 @@ def build_horizon_stages(start_year: int, start_month: int, horizon: int = 6, *,
         c_term=c_term,
         c_ens=float(cfg["energia_no_servida"]["costo_cop_kwh"]["valor"]),
         c_spill=float(cfg["vertimiento"]["penalizacion_cop_kwh"]["valor"]),
-        c_terminal=c_term,
+        c_terminal=c_terminal if c_terminal is not None else c_term,
         vfin=float(cfg["hidraulica"]["volumen_terminal_frac_v0"]["valor"]) * v0,
         v0=v0,
     )
