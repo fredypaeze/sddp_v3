@@ -208,6 +208,23 @@ class Sddp:
             totales[j] += self._terminal_cost(v)
         return {"totales": totales, "detalle": detalle}
 
+    def simulate_path(self, inflow_path: list[float]) -> dict:
+        """Evalua la politica (cortes actuales) a lo largo de una trayectoria dada de
+        aportes (p.ej. la historia observada). Devuelve costo realizado y detalle."""
+        assert len(inflow_path) == self.T, "la trayectoria debe cubrir todas las etapas"
+        v = self.cfg.v0
+        total = 0.0
+        det = {c: [] for c in ["gh", "gt", "ens", "sp", "v_next", "valor_agua_cop_kwh"]}
+        for s in range(self.T):
+            sol = self._subproblem(s, v, float(inflow_path[s]))
+            total += sol["inmediato"]
+            for c in ["gh", "gt", "ens", "sp", "v_next"]:
+                det[c].append(sol[c])
+            det["valor_agua_cop_kwh"].append(-sol["dual_v"])
+            v = sol["v_next"]
+        total += self._terminal_cost(v)
+        return {"costo_total": total, "detalle": det, "volumen_final": v}
+
     # -------- checkpoints --------
     def save_cuts(self, path: str | Path) -> None:
         data = {str(s): self.cuts[s] for s in self.cuts}
