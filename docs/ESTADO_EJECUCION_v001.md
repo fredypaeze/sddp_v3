@@ -6,8 +6,8 @@ Rama: `trabajo/finalizacion-sddp-cvar-v1` · Servidor: `tuxilo-server` · Python
 |---|---|---|
 | E0 · Entorno + verificación | ✅ Completada | ZIP SHA-256 OK; manifiesto 3079/3079; venv 3.11; parche pydataxm; base de pruebas 96/103 |
 | E1 · Auditoría técnica inicial | ✅ Completada | `docs/AUDITORIA_TECNICA_INICIAL_v001.md` |
-| E2 · Catálogo/validación de datos | ⏳ En curso | Diccionario + portabilidad `data_sources.json` + validación de balances |
-| E3 · Determinístico hidro-térmico | ⬜ Pendiente | LP HiGHS, embalse-equivalente |
+| E2 · Catálogo/validación de datos | ✅ Completada | Portabilidad `data_sources.json` (skip documentado); solver HiGHS; perfiles de datasets |
+| E3 · Determinístico hidro-térmico | ✅ Completada | LP HiGHS multiperiodo, balances exactos, valor del agua (dual). Demo: neutral 1.43 / Niño 2.79 B COP en 26 semanas. 6 pruebas OK |
 | E4 · Topología hidráulica | ⬜ Pendiente | 24 embalses |
 | E5 · Pronóstico ENOS | ⬜ Pendiente | baselines → SARIMAX/ML |
 | E6 · Escenarios estocásticos | ⬜ Pendiente | aportes/demanda |
