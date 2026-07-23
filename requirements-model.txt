@@ -1,0 +1,7 @@
+# Dependencias de la capa de modelo (adicionales a requirements.txt).
+# Instalación: uv pip install -r requirements-model.txt
+scipy==1.14.1
+highspy==1.11.0
+statsmodels==0.14.4
+scikit-learn==1.5.2
+matplotlib==3.9.2
