@@ -2,32 +2,29 @@
 
 Rama: `trabajo/finalizacion-sddp-cvar-v1` · Servidor: `tuxilo-server` · Python 3.11.15
 
-| Etapa | Estado | Notas |
+| Etapa | Estado | Evidencia |
 |---|---|---|
-| E0 · Entorno + verificación | ✅ Completada | ZIP SHA-256 OK; manifiesto 3079/3079; venv 3.11; parche pydataxm; base de pruebas 96/103 |
-| E1 · Auditoría técnica inicial | ✅ Completada | `docs/AUDITORIA_TECNICA_INICIAL_v001.md` |
-| E2 · Catálogo/validación de datos | ✅ Completada | Portabilidad `data_sources.json` (skip documentado); solver HiGHS; perfiles de datasets |
-| E3 · Determinístico hidro-térmico | ✅ Completada | LP HiGHS multiperiodo, balances exactos, valor del agua (dual). Demo: neutral 1.43 / Niño 2.79 B COP en 26 semanas. 6 pruebas OK |
-| E4 · Topología hidráulica | ⬜ Pendiente | 24 embalses |
-| E5 · Pronóstico ENOS | ⬜ Pendiente | baselines → SARIMAX/ML |
-| E6 · Escenarios estocásticos | ⬜ Pendiente | aportes/demanda |
-| E7 · SDDP formal | ⬜ Pendiente | forward/backward, cortes |
-| E8 · CVaR integrado | ⬜ Pendiente | λ, α |
-| E9 · Backtesting + sensibilidad | ⬜ Pendiente | episodios ENOS |
-| E10 · API + dashboard | ⬜ Pendiente | trazabilidad |
-| E11 · Actualización incremental | ⬜ Pendiente | XM por fecha |
-| E12 · Documentación + entrega | ⬜ Pendiente | informes + push |
+| E0 · Entorno + verificación | ✅ | ZIP+manifiesto verificados; venv 3.11; parche pydataxm; base 96/103 |
+| E1 · Auditoría técnica | ✅ | `AUDITORIA_TECNICA_INICIAL_v001.md` |
+| E2 · Catálogo/validación de datos | ✅ | portabilidad `data_sources.json`; HiGHS; perfiles |
+| E3 · Determinístico hidro-térmico | ✅ | LP HiGHS, balances exactos; `scripts/20` |
+| E4 · Topología hidráulica | ✅ | 24 embalses + cascadas; `scripts`/`topology` |
+| E5 · Pronóstico ENOS | ✅ | sarimax_oni MAE 35.7; `scripts/22` |
+| E6 · Escenarios estocásticos | ✅ | PAR/ARX(1)+ONI; `scripts/23` |
+| E7 · SDDP formal | ✅ | forward/backward, cortes, LB/UB; `scripts/24` |
+| E8 · CVaR integrado | ✅ | anidado en cortes, λ/α; `scripts/25` |
+| E9 · Backtesting + sensibilidad | ✅ | episodios ENOS + estrés; `scripts/26` |
+| E10 · API + dashboard | ✅ | FastAPI + Streamlit; `api/`, `app/` |
+| E11 · Actualización incremental | ⚠️ parcial | plan listo; descarga bloqueada por catálogo externo |
+| E12 · Documentación + entrega | ✅ | docs v001 + informes + push |
 
-## Línea base de pruebas
-- 103 pruebas · 96 OK · 7 no-OK (rutas externas Windows en `data_sources.json`; portabilidad, no lógica).
-
-## Decisiones de diseño registradas
-- **Granularidad del SDDP:** embalse-equivalente **agregado** del SIN. Justificación: los aportes (inflows) solo existen a nivel SIN agregado; el nivel por embalse tiene volumen/capacidad pero no aportes. Se documentará y, de ser viable, se probará agrupación por regiones.
-- **Split hidro/térmico:** **endógeno** (lo decide el optimizador para cubrir demanda con el agua disponible). No se dispone del split observado por tecnología.
-- **Supuestos config-driven** para costo/capacidad térmica y precios (brechas de datos), marcados y con análisis de sensibilidad.
+## Pruebas
+143 pruebas · OK · 7 *skip* documentados (catálogos externos no montados).
 
 ## Bloqueos
-- Ninguno que impida avanzar. Brechas de datos se cubren con supuestos documentados (autorizado por el alcance).
+- **Actualización de datos nuevos:** requiere el catálogo maestro externo (ListadoMetricas) y red a XM (ver `docs/ACTUALIZACION_DATOS_v001.md`). El histórico incluido (2010–2026-07-13) es suficiente para el modelo y el backtesting.
 
-## Siguiente acción
-- E2: diccionario de datos, validación de balances físicos, y portabilidad de `data_sources.json` (skip condicionado de tests dependientes de catálogos externos).
+## Resultados clave
+- SDDP El Niño: E[costo] ≈ 6.55 B COP (≈ hallazgo 6.36 B); P(ENS)=0 con embalse al 79 %.
+- Backtest estrés: SDDP evita 2 205 GWh de déficit (ahorra 2.38 B COP) vs. regla miope.
+- Pronóstico sarimax_oni MAE 35.7 GWh/día; El Niño reduce aportes ~30 %.
