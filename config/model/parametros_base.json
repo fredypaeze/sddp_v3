@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "descripcion": "Parametros del modelo de despacho hidro-termico agregado (embalse-equivalente del SIN). Los valores marcados fuente='supuesto' NO son dato oficial: son supuestos configurables para cubrir brechas de datos (ver docs/AUDITORIA_TECNICA_INICIAL_v001.md). Todo precio electrico en COP/kWh; toda energia en GWh.",
+    "version": "v001",
+    "unidad_energia": "GWh",
+    "unidad_precio": "COP/kWh"
+  },
+  "horizonte": {
+    "resolucion": "semanal",
+    "dias_por_etapa": 7,
+    "n_etapas": 26,
+    "nota": "26 semanas ~ 6 meses operativos."
+  },
+  "hidraulica": {
+    "turbina_max_gwh_dia": {"valor": 250.0, "fuente": "supuesto", "confianza": "media",
+      "nota": "Cota superior de generacion hidraulica diaria del SIN agregado; rara vez activa (el agua embalsada es la restriccion binding). Cambiar para sensibilidad."},
+    "volumen_inicial": {"modo": "observado", "fuente": "XM volumen_util_energia_sin", "confianza": "alta",
+      "nota": "V0 = volumen util observado (GWh) en la fecha de corte."},
+    "volumen_terminal_frac_v0": {"valor": 1.0, "fuente": "politica", "confianza": "media",
+      "nota": "Condicion terminal: v_T >= frac * V0 (evita vaciar el embalse al final del horizonte). 1.0 = conservar al menos el nivel inicial."}
+  },
+  "termica": {
+    "capacidad_max_gwh_dia": {"valor": 90.0, "fuente": "supuesto", "confianza": "baja",
+      "nota": "Cota superior de generacion termica diaria agregada. Hallazgo historico: termica ~21.5% de ~228 GWh/dia ~ 49 GWh/dia en promedio; se deja holgura para picos en El Nino. Sin capacidad/disponibilidad MW oficial de la flota (brecha de datos)."},
+    "costo_variable_cop_kwh": {
+      "neutral": 217.0,
+      "nino": 423.0,
+      "nina": 180.0,
+      "fuente": "hallazgo historico XM (precio de bolsa como proxy de costo termico marginal); NO es costo oficial declarado por planta",
+      "confianza": "media",
+      "nota": "Se usa el precio de bolsa por fase ENOS como proxy del costo variable termico. COP/kWh."
+    }
+  },
+  "otras_fuentes_gwh_dia": {"valor": 0.0, "fuente": "supuesto", "confianza": "media",
+    "nota": "Generacion no hidro/termica (solar, eolica, cogeneracion) e intercambios netos. 0 = todo el suministro se modela como hidro+termica. Ajustable."},
+  "energia_no_servida": {
+    "costo_cop_kwh": {"valor": 1500.0, "fuente": "supuesto (costo de racionamiento)", "confianza": "media",
+      "nota": "Penalizacion de ENS. Debe superar ampliamente el costo termico para que la ENS sea ultimo recurso. Proxy del costo incremental de racionamiento."}
+  },
+  "vertimiento": {
+    "penalizacion_cop_kwh": {"valor": 0.01, "fuente": "tecnico", "confianza": "alta",
+      "nota": "Penalizacion minima al vertimiento para desempatar (preferir turbinar/almacenar sobre verter). No es costo economico real."}
+  },
+  "riesgo": {
+    "lambda": 0.0,
+    "alpha": 0.95,
+    "nota": "lambda en [0,1] pondera CVaR (0 = neutral al riesgo). alpha en [0.80, 0.99] nivel de cola. Se usan en el modelo estocastico (ETAPA 8)."
+  }
+}

@@ -3,7 +3,10 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from minenergia_sddp.config.paths import load_data_sources
+from minenergia_sddp.config.paths import (
+    external_sources_available,
+    load_data_sources,
+)
 from minenergia_sddp.validation.contracts import CONTRACTS
 
 
@@ -12,6 +15,12 @@ class ConfigAndContractsTest(unittest.TestCase):
         cfg = load_data_sources()
         for item in cfg["external_sources"].values():
             self.assertEqual(item["mode"], "read_only")
+        # La existencia fisica solo se verifica cuando las fuentes externas estan
+        # montadas en este servidor (equipo de origen o SDDP_EXTERNAL_SOURCES_ROOT).
+        if not external_sources_available():
+            self.skipTest("Fuentes externas XM no montadas en este servidor "
+                          "(config/data_sources.json apunta al equipo de origen)")
+        for item in cfg["external_sources"].values():
             self.assertTrue(Path(item["path"]).exists())
 
     def test_required_contract_domains_exist(self) -> None:

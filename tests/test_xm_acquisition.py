@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from minenergia_sddp.config.paths import external_sources_available
 from minenergia_sddp.data.xm_catalog import (
     build_call_plan,
     build_metric_definitions,
@@ -20,7 +21,17 @@ from minenergia_sddp.data.xm_validation import (
 )
 
 
+# Solo los tests que leen el catalogo maestro externo (ListadoMetricas.xlsx) se
+# saltan cuando las fuentes externas no estan montadas; los demas siguen corriendo.
+requires_external_catalog = unittest.skipUnless(
+    external_sources_available(),
+    "Requiere catalogos maestros XM externos (ListadoMetricas.xlsx) no montados en "
+    "este servidor; config/data_sources.json apunta al equipo de origen.",
+)
+
+
 class XMAcquisitionTest(unittest.TestCase):
+    @requires_external_catalog
     def test_metric_ids_are_found(self) -> None:
         metrics = build_metric_definitions(end_date="2023-01-30")
         ids = {(m.metric_id, m.entity) for m in metrics}
@@ -42,6 +53,7 @@ class XMAcquisitionTest(unittest.TestCase):
         with self.assertRaises(ExecutionBlocked):
             client.post_json("https://servapibi.xm.com.co/daily", {"MetricId": "DemaSIN"})
 
+    @requires_external_catalog
     def test_payload_schema(self) -> None:
         metrics = [m for m in build_metric_definitions(end_date="2023-01-30") if m.target == "generacion_real_por_recurso"]
         call = build_call_plan(metrics, max_resources=2)[0]
@@ -49,10 +61,12 @@ class XMAcquisitionTest(unittest.TestCase):
         validate_payload_schema(payload, call)
         self.assertIn("Filter", payload)
 
+    @requires_external_catalog
     def test_output_routes(self) -> None:
         metric = [m for m in build_metric_definitions(end_date="2023-01-30") if m.target == "demanda_sin_diaria"][0]
         self.assertEqual(output_dir_for(metric), "data/raw/xm/demanda/demanda_sin_diaria")
 
+    @requires_external_catalog
     def test_percentage_output_route(self) -> None:
         metrics = build_metric_definitions(end_date="2023-01-30")
         metric = [
@@ -65,6 +79,7 @@ class XMAcquisitionTest(unittest.TestCase):
             "data/raw/xm/embalses/porcentaje_volumen_util_embalse",
         )
 
+    @requires_external_catalog
     def test_percentage_metric_configuration(self) -> None:
         metrics = build_metric_definitions(end_date="2026-07-13")
         selected = {
@@ -96,6 +111,7 @@ class XMAcquisitionTest(unittest.TestCase):
             31,
         )
 
+    @requires_external_catalog
     def test_percentage_call_counts(self) -> None:
         metrics = build_metric_definitions(end_date="2026-07-13")
         system_metric = [
