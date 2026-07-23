@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "descripcion": "Catalogo de topologia hidraulica de los 24 embalses del SIN presentes en los datos XM. Cuenca/region/tipo son hechos publicos sectoriales (confianza alta). Las relaciones de cascada solo se registran cuando estan bien establecidas; el resto queda 'pendiente' y NO se inventa. Ninguna relacion esta validada aun contra la topologia oficial XM/UPME (validacion='pendiente').",
+    "version": "v001",
+    "fuente_default": "conocimiento_publico_sectorial",
+    "validacion_default": "pendiente"
+  },
+  "embalses": [
+    {"codigo": "AGREGADO BOGOTA", "cuenca": "Rio Bogota / Magdalena", "region": "Cundinamarca", "tipo": "regulacion", "aguas_abajo": null, "confianza": "media"},
+    {"codigo": "ALTOANCHICAYA", "cuenca": "Rio Anchicaya", "region": "Valle del Cauca (Pacifico)", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "AMANI", "cuenca": "Rio La Miel / Magdalena", "region": "Caldas", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "BETANIA", "cuenca": "Rio Magdalena", "region": "Huila", "tipo": "regulacion", "aguas_abajo": null, "aguas_arriba": "EL QUIMBO", "confianza": "alta"},
+    {"codigo": "CALIMA1", "cuenca": "Rio Calima", "region": "Valle del Cauca", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "CHUZA", "cuenca": "Rio Chuza (sistema Guavio/Chingaza)", "region": "Cundinamarca", "tipo": "regulacion", "aguas_abajo": "GUAVIO", "confianza": "media"},
+    {"codigo": "EL QUIMBO", "cuenca": "Rio Magdalena", "region": "Huila", "tipo": "regulacion", "aguas_abajo": "BETANIA", "confianza": "alta"},
+    {"codigo": "ESMERALDA", "cuenca": "Sistema Guavio", "region": "Cundinamarca", "tipo": "regulacion", "aguas_abajo": "GUAVIO", "confianza": "media"},
+    {"codigo": "GUAVIO", "cuenca": "Rio Guavio", "region": "Cundinamarca", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "ITUANGO", "cuenca": "Rio Cauca", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "MIRAFLORES", "cuenca": "Sistema Rio Grande / Nare", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "baja"},
+    {"codigo": "MUNA", "cuenca": "Embalse del Muna (sistema Pagua/Bogota)", "region": "Cundinamarca", "tipo": "regulacion", "aguas_abajo": null, "confianza": "media"},
+    {"codigo": "PENOL", "cuenca": "Rio Nare (Penol-Guatape)", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": "SAN LORENZO", "confianza": "media"},
+    {"codigo": "PLAYAS", "cuenca": "Rio Guatape / Nare", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "media"},
+    {"codigo": "PORCE II", "cuenca": "Rio Porce", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": "PORCE III", "confianza": "alta"},
+    {"codigo": "PORCE III", "cuenca": "Rio Porce", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "aguas_arriba": "PORCE II", "confianza": "alta"},
+    {"codigo": "PRADO", "cuenca": "Rio Prado", "region": "Tolima", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "PUNCHINA", "cuenca": "Rio Guatape (sistema San Carlos)", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "media"},
+    {"codigo": "RIOGRANDE2", "cuenca": "Rio Grande", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "SALVAJINA", "cuenca": "Rio Cauca", "region": "Cauca", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "SAN LORENZO", "cuenca": "Embalse de Guatape (San Lorenzo)", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "aguas_arriba": "PENOL", "confianza": "media"},
+    {"codigo": "TOPOCORO", "cuenca": "Rio Sogamoso", "region": "Santander", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"},
+    {"codigo": "TRONERAS", "cuenca": "Sistema Guadalupe (Rio Tenche)", "region": "Antioquia", "tipo": "regulacion", "aguas_abajo": null, "confianza": "baja"},
+    {"codigo": "URRA1", "cuenca": "Rio Sinu", "region": "Cordoba", "tipo": "regulacion", "aguas_abajo": null, "confianza": "alta"}
+  ]
+}
