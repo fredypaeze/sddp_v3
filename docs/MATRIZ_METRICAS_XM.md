@@ -17,6 +17,8 @@ La matriz completa reproducible esta en `outputs/run_006/metricas_identificadas.
 | Volumen util energia embalse | `VoluUtilDiarEner` | Embalse | DailyEntities | kWh | FOUND_EXACT |
 | Capacidad util energia SIN | `CapaUtilDiarEner` | Sistema | DailyEntities | kWh | FOUND_EXACT |
 | Capacidad util energia embalse | `CapaUtilDiarEner` | Embalse | DailyEntities | kWh | FOUND_EXACT |
+| Porcentaje volumen util SIN | `PorcVoluUtilDiar` | Sistema | DailyEntities | % | FOUND_EXACT |
+| Porcentaje volumen util embalse | `PorcVoluUtilDiar` | Embalse | DailyEntities | % | FOUND_EXACT |
 | Aportes energia SIN | `AporEner` | Sistema | DailyEntities | kWh | FOUND_EXACT |
 | Aportes energia rio | `AporEner` | Rio | DailyEntities | kWh | FOUND_EXACT |
 | Importaciones energia | `ImpoEner` | Sistema | HourlyEntities | kWh | FOUND_EXACT |

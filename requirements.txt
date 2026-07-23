@@ -1,0 +1,5 @@
+numpy==1.26.4
+pandas==2.2.3
+pydataxm==0.3.17
+openpyxl==3.1.5
+pyarrow==18.1.0

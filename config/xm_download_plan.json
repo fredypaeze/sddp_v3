@@ -411,6 +411,44 @@
       "notes": ""
     },
     {
+      "target": "porcentaje_volumen_util_sin",
+      "official_name": "Volumen Útil  diario % por Sistema",
+      "metric_id": "PorcVoluUtilDiar",
+      "entity": "Sistema",
+      "periodicity": "DailyEntities",
+      "url": "https://servapibi.xm.com.co/daily",
+      "unit": "%",
+      "max_days": 31,
+      "filter_name": "No aplica",
+      "status": "FOUND_EXACT",
+      "evidence_file": "D:\\Proyectos\\minenergia\\xm_validation-main\\data\\catalogos\\maestros\\ListadoMetricas.xlsx",
+      "evidence": "Porcentaje de volumen almacenado en el embalse por encima del Nivel Mínimo Técnico",
+      "output_domain": "embalses",
+      "start_date": "2010-01-01",
+      "end_date": "2026-07-13",
+      "entity_source": "system",
+      "notes": ""
+    },
+    {
+      "target": "porcentaje_volumen_util_embalse",
+      "official_name": "Volumen Útil  diario % por Embalse",
+      "metric_id": "PorcVoluUtilDiar",
+      "entity": "Embalse",
+      "periodicity": "DailyEntities",
+      "url": "https://servapibi.xm.com.co/daily",
+      "unit": "%",
+      "max_days": 31,
+      "filter_name": "Nombre Embalse",
+      "status": "FOUND_EXACT",
+      "evidence_file": "D:\\Proyectos\\minenergia\\xm_validation-main\\data\\catalogos\\maestros\\ListadoMetricas.xlsx",
+      "evidence": "Porcentaje de volumen almacenado en el embalse por encima del Nivel Mínimo Técnico",
+      "output_domain": "embalses",
+      "start_date": "2010-01-01",
+      "end_date": "2026-07-13",
+      "entity_source": "active_embalse_names",
+      "notes": ""
+    },
+    {
       "target": "aportes_energia_sin",
       "official_name": "Aportes  Energía por Sistema",
       "metric_id": "AporEner",
@@ -544,5 +582,5 @@
       "notes": ""
     }
   ],
-  "estimated_calls": 4770
+  "estimated_calls": 5578
 }

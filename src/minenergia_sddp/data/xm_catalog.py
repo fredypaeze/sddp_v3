@@ -111,6 +111,8 @@ def target_specs() -> list[dict[str, str | None]]:
         {"target": "volumen_util_energia_embalse", "metric_id": "VoluUtilDiarEner", "entity": "Embalse", "domain": "embalses", "start": "2010-01-01", "scope": "active_embalse_names"},
         {"target": "capacidad_util_energia_sin", "metric_id": "CapaUtilDiarEner", "entity": "Sistema", "domain": "embalses", "start": "2010-01-01", "scope": "system"},
         {"target": "capacidad_util_energia_embalse", "metric_id": "CapaUtilDiarEner", "entity": "Embalse", "domain": "embalses", "start": "2010-01-01", "scope": "active_embalse_names"},
+        {"target": "porcentaje_volumen_util_sin", "metric_id": "PorcVoluUtilDiar", "entity": "Sistema", "domain": "embalses", "start": "2010-01-01", "scope": "system"},
+        {"target": "porcentaje_volumen_util_embalse", "metric_id": "PorcVoluUtilDiar", "entity": "Embalse", "domain": "embalses", "start": "2010-01-01", "scope": "active_embalse_names"},
         {"target": "aportes_energia_sin", "metric_id": "AporEner", "entity": "Sistema", "domain": "aportes", "start": "2010-01-01", "scope": "system"},
         {"target": "aportes_energia_rio", "metric_id": "AporEner", "entity": "Rio", "domain": "aportes", "start": "2010-01-01", "scope": "active_rio_names"},
         {"target": "importaciones_energia_sistema", "metric_id": "ImpoEner", "entity": "Sistema", "domain": "intercambios", "start": "2023-01-01", "scope": "system"},

@@ -27,6 +27,8 @@ class XMAcquisitionTest(unittest.TestCase):
         self.assertIn(("DemaSIN", "Sistema"), ids)
         self.assertIn(("Gene", "Recurso"), ids)
         self.assertIn(("VoluUtilDiarEner", "Embalse"), ids)
+        self.assertIn(("PorcVoluUtilDiar", "Sistema"), ids)
+        self.assertIn(("PorcVoluUtilDiar", "Embalse"), ids)
         self.assertTrue(all(m.status == "FOUND_EXACT" for m in metrics))
 
     def test_30_day_windows_do_not_overlap(self) -> None:
@@ -50,6 +52,70 @@ class XMAcquisitionTest(unittest.TestCase):
     def test_output_routes(self) -> None:
         metric = [m for m in build_metric_definitions(end_date="2023-01-30") if m.target == "demanda_sin_diaria"][0]
         self.assertEqual(output_dir_for(metric), "data/raw/xm/demanda/demanda_sin_diaria")
+
+    def test_percentage_output_route(self) -> None:
+        metrics = build_metric_definitions(end_date="2023-01-30")
+        metric = [
+            item
+            for item in metrics
+            if item.target == "porcentaje_volumen_util_embalse"
+        ][0]
+        self.assertEqual(
+            output_dir_for(metric),
+            "data/raw/xm/embalses/porcentaje_volumen_util_embalse",
+        )
+
+    def test_percentage_metric_configuration(self) -> None:
+        metrics = build_metric_definitions(end_date="2026-07-13")
+        selected = {
+            item.target: item
+            for item in metrics
+            if item.metric_id == "PorcVoluUtilDiar"
+        }
+        self.assertEqual(
+            set(selected),
+            {
+                "porcentaje_volumen_util_sin",
+                "porcentaje_volumen_util_embalse",
+            },
+        )
+        self.assertEqual(
+            selected["porcentaje_volumen_util_sin"].unit,
+            "%",
+        )
+        self.assertEqual(
+            selected["porcentaje_volumen_util_embalse"].unit,
+            "%",
+        )
+        self.assertEqual(
+            selected["porcentaje_volumen_util_embalse"].periodicity,
+            "DailyEntities",
+        )
+        self.assertEqual(
+            selected["porcentaje_volumen_util_embalse"].max_days,
+            31,
+        )
+
+    def test_percentage_call_counts(self) -> None:
+        metrics = build_metric_definitions(end_date="2026-07-13")
+        system_metric = [
+            item
+            for item in metrics
+            if item.target == "porcentaje_volumen_util_sin"
+        ]
+        reservoir_metric = [
+            item
+            for item in metrics
+            if item.target == "porcentaje_volumen_util_embalse"
+        ]
+        system_calls = build_call_plan(system_metric)
+        reservoir_calls = build_call_plan(reservoir_metric)
+        combined_calls = build_call_plan(
+            system_metric + reservoir_metric
+        )
+        self.assertEqual(len(system_calls), 202)
+        self.assertEqual(len(reservoir_calls), 606)
+        self.assertEqual(len(combined_calls), 808)
 
     def test_units(self) -> None:
         self.assertEqual(kwh_to_gwh(1_000_000), 1.0)
