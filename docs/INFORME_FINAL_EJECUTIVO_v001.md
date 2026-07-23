@@ -39,3 +39,7 @@ Generación por tecnología y capacidad/disponibilidad térmica reales, precios 
 ## Qué decisiones soporta
 
 Cuándo conservar agua vs. usar térmica; cuánto cuesta aumentar la seguridad energética; qué tan expuestos estamos a un El Niño; y cómo cambia todo según la aversión al riesgo (parámetro de política pública λ).
+
+## Estado de validación
+
+Se realizó una **auditoría de aceptación** antes de integrar el trabajo: todas las pruebas pasan, los balances de energía y agua se cumplen exactamente, el modelo y su medida de riesgo están validados, y la aplicación (API + tablero) funciona. El resultado es **APTO PARA MERGE** (revisión y fusión a cargo del equipo). Detalle en `docs/ACTA_VALIDACION_PRE_MERGE_v001.md`.

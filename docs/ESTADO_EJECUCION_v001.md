@@ -28,3 +28,6 @@ Rama: `trabajo/finalizacion-sddp-cvar-v1` · Servidor: `tuxilo-server` · Python
 - SDDP El Niño: E[costo] ≈ 6.55 B COP (≈ hallazgo 6.36 B); P(ENS)=0 con embalse al 79 %.
 - Backtest estrés: SDDP evita 2 205 GWh de déficit (ahorra 2.38 B COP) vs. regla miope.
 - Pronóstico sarimax_oni MAE 35.7 GWh/día; El Niño reduce aportes ~30 %.
+
+## Validación de aceptación pre-merge (2026-07-23)
+Auditoría final sobre la rama antes del PR #1: 143 pruebas (134 OK, 0 fallos, 7 skip), invariantes físicas verificadas (balance energético/hídrico 0.00 GWh, límites de embalse, gh/gt/ENS), SDDP y CVaR validados, API y dashboard operativos, repo sin secretos. **Recomendación: APTO PARA MERGE.** Detalle en `docs/ACTA_VALIDACION_PRE_MERGE_v001.md`.

@@ -44,3 +44,7 @@ Ver `docs/LIMITACIONES_v001.md`: falta generación por tecnología, capacidad/di
 ## 7. Reproducibilidad
 
 `uv pip install -r requirements.txt -r requirements-model.txt`, parche pydataxm, descomprimir el paquete, ejecutar `scripts/20→27`. Cada corrida deja `outputs/run_XXX/` con commit, semilla, hashes y resultados.
+
+## 8. Validación de aceptación pre-merge (2026-07-23)
+
+Auditoría final sobre `trabajo/finalizacion-sddp-cvar-v1` antes del PR #1: 143 pruebas (134 OK, 0 fallos, 7 skip, ~36 s); **invariantes físicas verificadas sobre 500 simulaciones** (balance energético 0.00 GWh, balance hídrico 0.00 GWh, límites de embalse, gh∈[0,Hmax], gt∈[0,Tmax], ENS≥0); SDDP validado (límite determinístico LB=UB, convergencia gap −0.011) y CVaR integrado; API y dashboard operativos; repositorio sin tokens/credenciales. **Recomendación: APTO PARA MERGE.** Acta completa en `docs/ACTA_VALIDACION_PRE_MERGE_v001.md`.
