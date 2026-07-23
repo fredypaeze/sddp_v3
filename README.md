@@ -10,6 +10,9 @@ Responde: cuándo conservar agua vs. usar térmica, cuál es el costo esperado y
 
 > Producto **técnico reproducible** (no sistema productivo institucional). Varios insumos térmicos/precios son **supuestos documentados**, no datos oficiales. Ver `docs/LIMITACIONES_v001.md`.
 
+**Entrega v0.1.0** — empezar por: `docs/GUIA_ENTREGA_RAPIDA_v001.md` · alcance en `docs/ALCANCE_ENTREGA_v001.md` · cierre en `docs/REPORTE_CIERRE_v001.md`.
+Comando principal: `PYTHONPATH=src .venv/bin/python scripts/24_sddp.py`
+
 ## Instalación
 
 ```bash
