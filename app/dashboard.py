@@ -34,9 +34,11 @@ sddp = load("run_024_v001")
 sens = load("run_025_v001")
 pron = load("run_022_v001")
 bt = load("run_026_v001")
+elnino = load("run_030_v001")
+elnino_emb = load("run_031_v001")
 
 tabs = st.tabs(["Estado y riesgo", "Recomendación térmica", "Sensibilidad λ/α",
-                "Pronóstico ENOS", "Backtesting"])
+                "Pronóstico ENOS", "Backtesting", "🌡️ El Niño · Riesgo de apagón"])
 
 with tabs[0]:
     if not sddp:
@@ -103,6 +105,52 @@ with tabs[4]:
         st.dataframe(pd.DataFrame(bt["tabla"]), use_container_width=True, hide_index=True)
         st.caption("Costo realizado (B COP) de cada política sobre la trayectoria de aportes OBSERVADA "
                    "de cada episodio. 'Visión perfecta' es cota inferior (conoce el futuro).")
+
+with tabs[5]:
+    st.subheader("Riesgo de apagón bajo El Niño 2026 (análogo hidrológico)")
+    st.caption("2026 sigue el patrón de El Niño 1997/2015 (correlación SST diaria Niño 3.4 con 1997 = 0.98, "
+               "análogo más cercano en 42 años). Se estresa el modelo con los aportes OBSERVADOS del super "
+               "El Niño 2015-16. **Escenario físicamente fundamentado, no un pronóstico.**")
+    if not elnino or not elnino_emb:
+        st.warning("Ejecuta `scripts/30_elnino_stress.py` y `scripts/31_elnino_embalse_bajo.py`.")
+    else:
+        df30 = pd.DataFrame(elnino["tabla"])
+        ana = df30[df30.escenario == "Analogo_2015-16"].iloc[0]
+        neu = df30[df30.escenario == "Neutral"].iloc[0]
+        k = st.columns(4)
+        k[0].metric("Costo esperado (análogo)", f"{ana['E_costo_B']:.1f} B COP",
+                    delta=f"{ana['E_costo_B']-neu['E_costo_B']:+.1f} vs neutral")
+        k[1].metric("CVaR₉₅ (análogo)", f"{ana['CVaR95_B']:.1f} B COP",
+                    delta=f"{ana['CVaR95_B']-neu['CVaR95_B']:+.1f} vs neutral")
+        k[2].metric("Prob. de apagón (P(ENS))", f"{ana['prob_ens']:.1%}",
+                    delta=f"{(ana['prob_ens']-neu['prob_ens'])*100:+.1f} pp", delta_color="inverse")
+        k[3].metric("Generación térmica", f"{ana['gen_termica_gwh']:.0f} GWh",
+                    delta=f"×{ana['gen_termica_gwh']/max(neu['gen_termica_gwh'],1):.0f}")
+
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("**Costo y riesgo por escenario**")
+            fig = px.bar(df30, x="escenario", y=["E_costo_B", "CVaR95_B"], barmode="group",
+                         labels={"value": "B COP", "escenario": "", "variable": ""})
+            st.plotly_chart(fig, use_container_width=True)
+        with c2:
+            st.markdown("**Riesgo de apagón vs. nivel del embalse** (aportes análogo 2015-16)")
+            emb = pd.DataFrame(elnino_emb["tabla"]).sort_values("embalse_inicial_pct")
+            emb["P(ENS) %"] = emb["prob_ens"] * 100
+            fig2 = px.line(emb, x="embalse_inicial_pct", y="P(ENS) %", markers=True,
+                           labels={"embalse_inicial_pct": "Embalse inicial (% capacidad)"})
+            fig2.update_traces(line_color="#c0392b")
+            st.plotly_chart(fig2, use_container_width=True)
+
+        st.error("**Lectura clave:** con el embalse actual (~79 %) el riesgo de apagón bajo un El Niño tipo "
+                 "2015-16 es **manejable (~4 %)** — el agua embalsada amortigua. Pero si el sistema entra a la "
+                 "temporada seca con el embalse al **30-40 %**, el riesgo salta a **24-70 %**, concentrado en "
+                 "**nov-dic-ene**. **Prioridad operativa: conservar agua y preparar térmica ANTES de la seca.**")
+        st.dataframe(pd.DataFrame(elnino_emb["tabla"])[["etiqueta", "embalse_inicial_pct", "E_costo_B",
+                     "CVaR95_B", "prob_ens", "ens_total_gwh"]], hide_index=True, use_container_width=True)
+        st.caption("Fuente aportes: XM (observados 2015-16). Costos: supuesto config-driven (COP/kWh por fase ENOS). "
+                   "Análisis SST/análogo: NOAA CoralTemp v3.1. Honestidad: aportes análogos ≠ pronóstico; el valor "
+                   "terminal del agua (v0.1.0) hace que el modelo drene el embalse (la comparación relativa es robusta).")
 
 st.divider()
 st.caption("Ministerio de Minas y Energía · Modelo SDDP + CVaR (v001) · cifras trazables a outputs/run_*.")
